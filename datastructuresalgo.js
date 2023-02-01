@@ -101,11 +101,11 @@ function same(arr1, arr2) {
         frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
     }
 
-    for (let key in frequencyCounter1){
+    for (let key in frequencyCounter1) {
         if (!(key ** 2 in frequencyCounter2)) {
             return false;
         }
-        if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
+        if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
             return false;
         }
     }
@@ -118,52 +118,52 @@ function same(arr1, arr2) {
 //Algorithm to check if 2 strings are a Valid Anagram
 //My Solution
 
-function validAnagram(obj1, obj2){
-    
-      if(obj1.length !== obj2.length){
-          return false;
-      }
-      
-      let count1 = {};
-      let count2 = {};
-      
-      for(let val of obj1){
-          count1[val] = (count1[val] || 0) + 1
-      }
-      
-      for(let val of obj2){
-          count2[val] = (count2[val] || 0) + 1
-      }  
-      
-      for (let key in count1){
-          if (!(key in count2)) {
-              return false;
-          }
-          if (count2[key] !== count1[key]){
-              return false;
-          }
-      }
-      
-      return true;
-  }
+function validAnagram(obj1, obj2) {
 
-  //Colt's Solution
+    if (obj1.length !== obj2.length) {
+        return false;
+    }
 
-  function validAnagramColt(first, second){
-    if (first.length !== second.length){
+    let count1 = {};
+    let count2 = {};
+
+    for (let val of obj1) {
+        count1[val] = (count1[val] || 0) + 1
+    }
+
+    for (let val of obj2) {
+        count2[val] = (count2[val] || 0) + 1
+    }
+
+    for (let key in count1) {
+        if (!(key in count2)) {
+            return false;
+        }
+        if (count2[key] !== count1[key]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+//Colt's Solution
+
+function validAnagramColt(first, second) {
+    if (first.length !== second.length) {
         return false;
     }
 
     const lookup = {};
 
-    for(let i = 0; i < first.length; i++){
+    for (let i = 0; i < first.length; i++) {
         let letter = first[i];
         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
     }
 
-    for(let i = 0; i < second.length; i++){
+    for (let i = 0; i < second.length; i++) {
         let letter = second[i];
-        if(!lookup[letter]){
+        if (!lookup[letter]) {
             return false;
         } else {
             lookup[letter] -= 1;
@@ -171,54 +171,54 @@ function validAnagram(obj1, obj2){
     }
 
     return true;
-  }
+}
 
-  //Colt's Solution - sumZero Algo
+//Colt's Solution - sumZero Algo
 
-  function sumZero(arr){
+function sumZero(arr) {
     let left = 0;
     let right = arr.length - 1;
 
-    while(left < right){
+    while (left < right) {
         let sum = arr[left] + arr[right];
-        if(sum === 0){
+        if (sum === 0) {
             return [arr[left, arr[right]]];
-        } else if(sum > 0) {
+        } else if (sum > 0) {
             right--;
         } else {
             left++;
         }
     }
-  }
+}
 
-  //Colt's Solution - countUniqueValues Algo - Runtime: O(n)
+//Colt's Solution - countUniqueValues Algo - Runtime: O(n)
 
-  function countUniqueValues(arr){
+function countUniqueValues(arr) {
 
-    if(arr.length === 0) {return 0;}
+    if (arr.length === 0) { return 0; }
     var i = 0;
 
-    for (var j = 1; j < arr.length; j++){
-        if(arr[i] !== arr[j]){
+    for (var j = 1; j < arr.length; j++) {
+        if (arr[i] !== arr[j]) {
             i++;
             arr[i] = arr[j];
         }
     }
-  }
+}
 
 //Colt's Solution - Sliding Window Algo - Runtime: O(n)
 
-function maxSubarraySum(arr, num){
+function maxSubarraySum(arr, num) {
     let maxSum = 0;
     let tempSum = 0;
 
     if (arr.length < num) return null;
-    for (let i = 0; i < num; i++){
+    for (let i = 0; i < num; i++) {
         maxSum += arr[i];
     }
 
     tempSum = maxSum;
-    for (let i = num; i < arr.length; i++){
+    for (let i = num; i < arr.length; i++) {
         tempSum = tempSum - arr[i - num] + arr[i];
         maxSum = Math.max(maxSum, tempSum);
     }
@@ -229,8 +229,8 @@ function maxSubarraySum(arr, num){
 
 //Recursion
 
-function countDown(num){
-    if (num <= 0){
+function countDown(num) {
+    if (num <= 0) {
         console.log("All Done!");
         return;
     }
@@ -239,29 +239,29 @@ function countDown(num){
     countDown(num);
 }
 
-function sumRange(num){
-    if(num === 1) return 1;
+function sumRange(num) {
+    if (num === 1) return 1;
     return num + sumRange(num - 1);
 }
 
 //Recursion Factorial
 
-function factorial(num){
-    if(num === 1) return 1;
+function factorial(num) {
+    if (num === 1) return 1;
     return num * factorial(num - 1);
 }
 
 //Recursion with Helper Function
 
-function collectOddValues(arr){
+function collectOddValues(arr) {
     let result = [];
 
-    function helper(helperInput){
-        if(helperInput.length === 0){
+    function helper(helperInput) {
+        if (helperInput.length === 0) {
             return;
         }
 
-        if(helperInput[0] % 2 !== 0){
+        if (helperInput[0] % 2 !== 0) {
             result.push(helperInput[0])
         }
 
@@ -277,14 +277,14 @@ function collectOddValues(arr){
 
 //Pure Recursion of Helper Function Recursion
 
-function collectOddValues(arr){
+function collectOddValues(arr) {
     let newArr = [];
 
-    if(arr.length === 0){
+    if (arr.length === 0) {
         return newArr;
     }
 
-    if(arr[0] % 2 !== 0 ){
+    if (arr[0] % 2 !== 0) {
         newArr.push(arr[0]);
     }
 
@@ -294,9 +294,9 @@ function collectOddValues(arr){
 
 //Colt Steele - Linear Search Problem
 
-function linearSearch(arr, val){
-    for(var i = 0; i < arr.length; i++){
-        if (arr[i] === val){
+function linearSearch(arr, val) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === val) {
             return i;
         } else {
             return -1;
@@ -306,20 +306,20 @@ function linearSearch(arr, val){
 
 //Colt Steele - Binary Search Problem
 
-function binarySearch(arr, val){
+function binarySearch(arr, val) {
     var start = 0;
     var end = arr.length - 1;
     var middle = Math.floor((start + end) / 2);
 
-    while(arr[middle] !== val && start <= end){
-        if(val < arr[middle]){
+    while (arr[middle] !== val && start <= end) {
+        if (val < arr[middle]) {
             end = middle - 1;
         } else {
             start = middle + 1;
         }
         middle = Math.floor((start + end) / 2);
     }
-    if(arr[middle] === val){
+    if (arr[middle] === val) {
         return middle;
     } else {
         return -1;
@@ -328,15 +328,15 @@ function binarySearch(arr, val){
 
 //Colt Steele - Naive String Search
 
-function naiveSearch(long, short){
+function naiveSearch(long, short) {
     var count = 0;
 
-    for(var i = 0; i < long.length; i++){
-        for(var j = 0; j < short.length; j++){
-            if(short[j] !== long[i+j]){
+    for (var i = 0; i < long.length; i++) {
+        for (var j = 0; j < short.length; j++) {
+            if (short[j] !== long[i + j]) {
                 break;
             }
-            if(j === short.length - 1){
+            if (j === short.length - 1) {
                 count++;
             }
         }
@@ -346,37 +346,59 @@ function naiveSearch(long, short){
 
 //Colt Steele - Bubble Sort ES5
 
-function bubbleSort(arr){
+function bubbleSort(arr) {
     var noSwaps;
 
-    for(var i = arr.length; i > 0; i--){
+    for (var i = arr.length; i > 0; i--) {
         noSwaps = true;
-        for(var j = 0; j < i - 1; j++){
-            if(arr[j] > arr[j+1]){
+        for (var j = 0; j < i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
                 var temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
                 noSwaps = false;
             }
         }
 
-        if(noSwaps) break;
+        if (noSwaps) break;
     }
     return arr;
 }
 
 //Colt Steele - Bubble Sort ES6
 
-function bubbleSortES6(arr){
+function bubbleSortES6(arr) {
     const swap = (arr, index1, index2) => {
         [arr[index1], arr[index2] = arr[index2], arr[index1]];
     };
 
-    for(let i = arr.length; i > 0; i--){
-        for(let j = 0; j< i - 1; j++){
-            if(arr[j] > arr[j + 1]){
+    for (let i = arr.length; i > 0; i--) {
+        for (let j = 0; j < i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
                 swap(arr, j, j + 1);
             }
+        }
+    }
+
+    return arr;
+}
+
+
+//Colt Steele - Selection Sort
+
+function selectionSort(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        var lowest = i;
+
+        for (var j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[lowest]) {
+                lowest = j;
+            }
+        }
+        if (i !== lowest) {
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[lowest] = temp;
         }
     }
 
