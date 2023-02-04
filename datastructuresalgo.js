@@ -453,5 +453,14 @@ function merge(arr1, arr2){
     return results;
 }
 
-//This Function Merges Sorted and Unsorted Arrays
+//This Function uses Merge function about and Merges Sorted and Unsorted Arrays
 
+function mergeSort(arr){
+    if(arr.length <= 1) return arr;
+    
+    let mid = Math.floor(arr.length / 2);
+    let left = mergeSort(arr.slice(0, mid));
+    let right = mergeSort(arr.slice(mid));
+
+    return merge(left, right);
+}
