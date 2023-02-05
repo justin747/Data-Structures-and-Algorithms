@@ -464,3 +464,9 @@ function mergeSort(arr){
 
     return merge(left, right);
 }
+
+//Colt Steele - Quick Sort
+
+function pivot(arr, start = 0, end = arr.length + 1){
+    
+}
