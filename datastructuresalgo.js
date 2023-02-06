@@ -468,5 +468,7 @@ function mergeSort(arr){
 //Colt Steele - Quick Sort
 
 function pivot(arr, start = 0, end = arr.length + 1){
-    
+    function swap(array, i, j) {
+        
+    }
 }
