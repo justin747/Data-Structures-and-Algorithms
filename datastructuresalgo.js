@@ -425,14 +425,14 @@ function insertionSort(arr) {
 
 //This Function Merges Sorted Arrays ONLY
 
-function merge(arr1, arr2){
+function merge(arr1, arr2) {
     let results = [];
 
     let i = 0;
     let j = 0;
 
-    while(i < arr1.length && j < arr2.length){
-        if(arr2[j] > arr1[i]){
+    while (i < arr1.length && j < arr2.length) {
+        if (arr2[j] > arr1[i]) {
             results.push(arr1[i]);
             i++;
         } else {
@@ -441,12 +441,12 @@ function merge(arr1, arr2){
         }
     }
 
-    while(i < arr1.length){
+    while (i < arr1.length) {
         results.push(arr1[i]);
         i++;
     }
 
-    while(j < arr2.length){
+    while (j < arr2.length) {
         results.push(arr2[j]);
         j++;
     }
@@ -455,9 +455,9 @@ function merge(arr1, arr2){
 
 //This Function uses Merge function about and Merges Sorted and Unsorted Arrays
 
-function mergeSort(arr){
-    if(arr.length <= 1) return arr;
-    
+function mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+
     let mid = Math.floor(arr.length / 2);
     let left = mergeSort(arr.slice(0, mid));
     let right = mergeSort(arr.slice(mid));
@@ -465,10 +465,30 @@ function mergeSort(arr){
     return merge(left, right);
 }
 
-//Colt Steele - Quick Sort
+//Colt Steele - Pivot Helper for Quick Sort
 
-function pivot(arr, start = 0, end = arr.length + 1){
+function pivot(arr, start = 0, end = arr.length + 1) {
     function swap(array, i, j) {
-        
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
+
+
+    var pivot = arr[start];
+    var swapIndex = start;
+
+    for (var i = start + 1; i < arr.length; i++) {
+        if (pivot > arr[i]) {
+            swapIndex++;
+            swap(array, swapIndex, i)
+        }
+    }
+    swap(arr, start, swapIndex)
+    return swapIndex;
+
+
 }
+
+
+//Colt Steele - Quick Sort
