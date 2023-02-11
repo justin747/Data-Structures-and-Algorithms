@@ -508,7 +508,7 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
     return arr;
 }
 
-//Colt Steele - Radix Sort
+//Colt Steele - Radix Sort Helper Methods
 
 function digitCount(num) {
     if (num === 0) return 1;
