@@ -619,4 +619,70 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+
+        var counter = 0;
+        var current = this.head;
+
+        while (counter !== index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+
+    set(index, val) {
+        var foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true
+        }
+        return false;
+    }
+
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        //Double Bang converts value to Boolean
+
+        var newNode = new Node(val);
+        var prev = this.get(index - 1);
+        var temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+
+    remove(index) {
+        if (index < 0 || index >= this.length) return null;
+        if (index === this.length - 1) return this.pop();
+        if (index === 0) return this.shift();
+
+        var perviousNode = this.get(index - 1);
+        var removed = perviousNode.next;
+        this.length--;
+        perviousNode.next = removed.next;
+    }
+
+    reverse() {
+        var node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        var prev = null;
+        var next; 
+
+        for(var i = o; i < this.length; i++) {
+            node = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+
+        return this;
+    }
 }
