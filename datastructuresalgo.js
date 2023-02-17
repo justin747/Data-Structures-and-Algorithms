@@ -292,6 +292,7 @@ function collectOddValues(arr) {
     return newArr;
 }
 
+
 //Colt Steele - Linear Search Problem
 
 function linearSearch(arr, val) {
