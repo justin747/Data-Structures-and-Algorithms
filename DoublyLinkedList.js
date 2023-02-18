@@ -44,4 +44,8 @@ class DoublyLinkedList {
             return this;
         }
     }
+
+    shift() {
+        
+    }
 }
