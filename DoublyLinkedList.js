@@ -41,11 +41,11 @@ class DoublyLinkedList {
             this.tail = poppedNode.prev;
 
             this.length--;
-            return this;
+            return poppedNode;
         }
     }
 
     shift() {
-        
+
     }
 }
