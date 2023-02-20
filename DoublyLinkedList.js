@@ -46,6 +46,6 @@ class DoublyLinkedList {
     }
 
     shift() {
-
+        if(this.length === 0) return null;
     }
 }
