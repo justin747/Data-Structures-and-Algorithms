@@ -57,5 +57,6 @@ class DoublyLinkedList {
 
         this.head = oldHead.next;
         this.head.prev = null;
+        oldHead.next = null;
     }
 }
