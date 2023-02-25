@@ -40,18 +40,20 @@ class DoublyLinkedList {
         } else {
             this.tail = poppedNode.prev;
             this.tail.next = null;
-            
-            this.length--;
-            return poppedNode;
+            poppedNode.prev = null;
         }
+
+        this.length--;
+        return poppedNode;
+
     }
 
     shift() {
-        if(this.length === 0) return null;
+        if (this.length === 0) return null;
 
         var oldHead = this.head;
 
-        if(this.length === 1) {
+        if (this.length === 1) {
             this.head = null;
             this.tail = null;
         }
