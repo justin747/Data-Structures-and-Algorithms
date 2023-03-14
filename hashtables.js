@@ -27,4 +27,8 @@ class HashTable {
 
         return total;
     }
+
+    set(key, value) {
+        let index = this._hash(key);
+    }
 }
