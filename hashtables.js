@@ -31,4 +31,8 @@ class HashTable {
     set(key, value) {
         let index = this._hash(key);
     }
+
+    get(key, value) {
+        let index = this._hash(key);
+    }
 }
