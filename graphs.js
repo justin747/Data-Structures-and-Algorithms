@@ -32,4 +32,8 @@ class Graph {
 
         delete this.adjacencyList[vertex];
     }
+
+    depthFirstRecursive(vertex) {
+        
+    }
 }
