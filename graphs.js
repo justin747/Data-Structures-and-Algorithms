@@ -34,6 +34,9 @@ class Graph {
     }
 
     depthFirstRecursive(vertex) {
+        const result = [];
+        const visited = {};
+
         
     }
 }
