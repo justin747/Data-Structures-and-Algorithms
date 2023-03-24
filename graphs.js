@@ -51,7 +51,7 @@ class Graph {
             });
         })
             (start);
-            return result;
+        return result;
     }
 
     depthFirstIterative(start) {
@@ -60,13 +60,13 @@ class Graph {
         const visited = {};
 
         visited[start] = true;
-        while(stack.length) {
+        while (stack.length) {
             console.log(stack);
             currentVertex = stack.pop();
             result.push(currentVertex);
 
             this.adjacencyList[currentVertex].forEach(neighbor => {
-                if(!visited[neighbor]) {
+                if (!visited[neighbor]) {
                     visited[neighbor] = true;
                     stack.push(neighbor)
                 }
@@ -76,6 +76,9 @@ class Graph {
     }
 
     breadthFirstSearch(start) {
-        
+        const queue = [start];
+        const result = [];
+        const visited = {};
+
     }
 }
